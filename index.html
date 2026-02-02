@@ -8,8 +8,26 @@
 body{
     font-family: Tahoma, Arial;
     background:#f2f2f2;
+    margin: 0;
+    padding: 0;
     text-align:center;
 }
+/* شريط المعلومات العلوي */
+.header-info {
+    background: #fff;
+    padding: 10px 20px;
+    border-bottom: 2px solid #ddd;
+    text-align: right; /* لمحاذاة النص لليمين */
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+.header-info span {
+    font-weight: bold;
+    color: #c40000;
+}
+
 .box{
     background:#fff;
     width:90%;
@@ -35,10 +53,16 @@ button{
     border-radius:8px;
     font-size:18px;
     cursor: pointer;
+    font-weight: bold;
 }
 </style>
 </head>
 <body>
+
+<div class="header-info">
+    <div>الاسم: <span>محمد أحمد علي</span></div>
+    <div>رقم المحفظة: <span>010XXXXXX89</span></div>
+</div>
 
 <div class="box">
 
@@ -49,9 +73,9 @@ button{
 <p>حسابك مستحق 2740 جنيه مصري أرباح</p>
 <p>قم بالتحويل وأرفق صورة التحويل</p>
 
-<input type="file" id="img">
+<input type="file" id="img" accept="image/*">
 
-<button onclick="goNext()">التالي</button>
+<button onclick="goNext()">تأكيد وإرسال</button>
 
 </div>
 
@@ -59,9 +83,8 @@ button{
 function goNext(){
     var file = document.getElementById('img').value;
     if(file === ""){
-        alert("من فضلك اختر صورة أولاً");
+        alert("من فضلك اختر صورة التحويل أولاً");
     }else{
-        // هنا يتم التوجيه لصفحة النجاح الوهمية
         window.location.href = "success.html";
     }
 }
