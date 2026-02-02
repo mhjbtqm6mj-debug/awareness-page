@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تم تقديم الطلب</title>
+<style>
+body{
+    font-family: Tahoma, Arial;
+    background:#f2f2f2;
+    text-align:center;
+}
+.box{
+    background:#fff;
+    width:90%;
+    max-width:500px;
+    margin:80px auto;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+.msg{
+    font-size:22px;
+    color:green;
+    font-weight:bold;
+    margin-bottom: 20px;
+}
+.loader {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid green;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+
+<div class="msg">
+تم تقديم طلبك بنجاح
+</div>
+
+<div class="loader"></div>
+
+<p style="font-size:20px;">
+يرجى الانتظار خمس دقائق وسيتم استلام أرباحك على محفظتك الإلكترونية.
+</p>
+
+</div>
+
+</body>
+</html>
