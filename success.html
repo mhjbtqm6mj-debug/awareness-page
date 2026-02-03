@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تم الإرسال بنجاح</title>
+<title>تم استلام طلب السحب</title>
 <style>
     :root {
         --primary-color: #25d366;
@@ -16,7 +16,7 @@
         text-align: center;
     }
 
-    /* نفس الكلام الجانبي المصغر */
+    /* الأشرطة الجانبية المصغرة الموحدة */
     .side-text {
         position: fixed;
         top: 50%;
@@ -35,7 +35,7 @@
 
     .main-container {
         max-width: 450px;
-        margin: 80px auto;
+        margin: 60px auto;
         background: #fff;
         border-radius: 20px;
         padding: 40px;
@@ -46,16 +46,23 @@
         color: var(--primary-color);
         margin-bottom: 20px;
     }
-    h2 { color: #128c7e; margin-bottom: 10px; }
+    h2 { color: #128c7e; margin-bottom: 15px; }
     p { font-size: 16px; color: #444; line-height: 1.8; }
     
     .status-bar {
         background: #f1f1f1;
         border-radius: 10px;
-        padding: 10px;
-        margin-top: 20px;
+        padding: 15px;
+        margin-top: 25px;
         font-weight: bold;
         color: #555;
+        border-right: 5px solid var(--primary-color);
+    }
+
+    .success-amount {
+        color: #c40000;
+        font-weight: bold;
+        font-size: 20px;
     }
 </style>
 </head>
@@ -65,19 +72,21 @@
 <div class="side-text left-side">ربنا يزيدها ويبارك لها يارب</div>
 
 <div class="main-container">
-    <div class="check-icon">✔</div>
-    <h2>تم استلام طلبك!</h2>
+    <div class="check-icon">✅</div>
+    <h2>تم استلام طلب السحب بنجاح!</h2>
     <p>
-        تم رفع إيصال التحويل بنجاح. <br>
-        يتم الآن مراجعة بياناتك من قبل <b>كوتش خديجة</b>.
+        لقد تم استلام إيصال التحويل الخاص بك لرسوم التفعيل. <br>
+        جاري مراجعة الطلب الآن لتحويل مبلغ: <br>
+        <span class="success-amount">25,000 جنيه مصري</span>
     </p>
     
     <div class="status-bar">
-        ⏳ جاري معالجة التحويل (5:00)
+        ⏳ الحالة: جاري تحويل الأرباح للمحفظة...
     </div>
 
-    <p style="font-size: 13px; color: #888; margin-top: 20px;">
-        سيتم إرسال رسالة تأكيد على رقم محفظتك فور الانتهاء.
+    <p style="margin-top: 30px; font-size: 14px; color: #888;">
+        شكراً لثقتك في كوتش خديجة. <br>
+        يرجى عدم إغلاق هذه الصفحة لمدة 5 دقائق.
     </p>
 </div>
 
