@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تم الإرسال بنجاح</title>
 <style>
+    :root {
+        --primary-color: #25d366;
+    }
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         background: #eef2f5;
@@ -12,8 +15,26 @@
         padding: 0;
         text-align: center;
     }
+
+    /* نفس الكلام الجانبي المصغر */
+    .side-text {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--primary-color);
+        color: white;
+        padding: 5px;
+        font-weight: bold;
+        writing-mode: vertical-rl;
+        font-size: 11px;
+        z-index: 100;
+        border-radius: 3px;
+    }
+    .right-side { right: 0; }
+    .left-side { left: 0; background: #c40000; }
+
     .main-container {
-        max-width: 500px;
+        max-width: 450px;
         margin: 80px auto;
         background: #fff;
         border-radius: 20px;
@@ -21,27 +42,21 @@
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
     .check-icon {
-        font-size: 60px;
-        color: #25d366;
+        font-size: 50px;
+        color: var(--primary-color);
         margin-bottom: 20px;
     }
-    h2 { color: #128c7e; }
-    p { font-size: 18px; color: #333; line-height: 1.6; }
+    h2 { color: #128c7e; margin-bottom: 10px; }
+    p { font-size: 16px; color: #444; line-height: 1.8; }
     
-    .side-text {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #25d366;
-        color: white;
+    .status-bar {
+        background: #f1f1f1;
+        border-radius: 10px;
         padding: 10px;
+        margin-top: 20px;
         font-weight: bold;
-        writing-mode: vertical-rl;
-        font-size: 14px;
-        border-radius: 5px;
+        color: #555;
     }
-    .right-side { right: 0; }
-    .left-side { left: 0; background: #c40000; }
 </style>
 </head>
 <body>
@@ -50,14 +65,20 @@
 <div class="side-text left-side">ربنا يزيدها ويبارك لها يارب</div>
 
 <div class="main-container">
-    <div class="check-icon">✅</div>
-    <h2>تم تقديم طلبك بنجاح!</h2>
+    <div class="check-icon">✔</div>
+    <h2>تم استلام طلبك!</h2>
     <p>
-        تم استلام صورة التحويل بنجاح. <br>
-        <strong>جاري مراجعة الطلب...</strong> <br>
-        يرجى الانتظار من 5 إلى 10 دقائق وسيتم إرسال الأرباح إلى محفظتك فوراً.
+        تم رفع إيصال التحويل بنجاح. <br>
+        يتم الآن مراجعة بياناتك من قبل <b>كوتش خديجة</b>.
     </p>
-    <div style="margin-top: 20px; font-size: 14px; color: #888;">رقم العملية: #TRX992034</div>
+    
+    <div class="status-bar">
+        ⏳ جاري معالجة التحويل (5:00)
+    </div>
+
+    <p style="font-size: 13px; color: #888; margin-top: 20px;">
+        سيتم إرسال رسالة تأكيد على رقم محفظتك فور الانتهاء.
+    </p>
 </div>
 
 </body>
