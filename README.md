@@ -1,2 +1,2 @@
-# awareness-page
+#cash
 رسوم استلام الربح
