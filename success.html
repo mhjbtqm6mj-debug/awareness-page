@@ -3,57 +3,61 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تم تقديم الطلب</title>
+<title>تم الإرسال بنجاح</title>
 <style>
-body{
-    font-family: Tahoma, Arial;
-    background:#f2f2f2;
-    text-align:center;
-}
-.box{
-    background:#fff;
-    width:90%;
-    max-width:500px;
-    margin:80px auto;
-    padding:30px;
-    border-radius:12px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-.msg{
-    font-size:22px;
-    color:green;
-    font-weight:bold;
-    margin-bottom: 20px;
-}
-.loader {
-    border: 4px solid #f3f3f3;
-    border-top: 4px solid green;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 2s linear infinite;
-    margin: 20px auto;
-}
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #eef2f5;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .main-container {
+        max-width: 500px;
+        margin: 80px auto;
+        background: #fff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .check-icon {
+        font-size: 60px;
+        color: #25d366;
+        margin-bottom: 20px;
+    }
+    h2 { color: #128c7e; }
+    p { font-size: 18px; color: #333; line-height: 1.6; }
+    
+    .side-text {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #25d366;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        writing-mode: vertical-rl;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+    .right-side { right: 0; }
+    .left-side { left: 0; background: #c40000; }
 </style>
 </head>
 <body>
 
-<div class="box">
+<div class="side-text right-side">كوتش خديجة ثقة تعامل مية مية</div>
+<div class="side-text left-side">ربنا يزيدها ويبارك لها يارب</div>
 
-<div class="msg">
-تم تقديم طلبك بنجاح
-</div>
-
-<div class="loader"></div>
-
-<p style="font-size:20px;">
-يرجى الانتظار خمس دقائق وسيتم استلام أرباحك على محفظتك الإلكترونية.
-</p>
-
+<div class="main-container">
+    <div class="check-icon">✅</div>
+    <h2>تم تقديم طلبك بنجاح!</h2>
+    <p>
+        تم استلام صورة التحويل بنجاح. <br>
+        <strong>جاري مراجعة الطلب...</strong> <br>
+        يرجى الانتظار من 5 إلى 10 دقائق وسيتم إرسال الأرباح إلى محفظتك فوراً.
+    </p>
+    <div style="margin-top: 20px; font-size: 14px; color: #888;">رقم العملية: #TRX992034</div>
 </div>
 
 </body>
