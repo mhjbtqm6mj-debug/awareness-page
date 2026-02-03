@@ -3,92 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تم استلام طلب السحب</title>
+<title>تأكيد السحب</title>
 <style>
-    :root {
-        --primary-color: #25d366;
-    }
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #eef2f5;
-        margin: 0;
-        padding: 0;
-        text-align: center;
-    }
+    :root { --primary-color: #25d366; }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #eef2f5; margin: 0; text-align: center; }
 
-    /* الأشرطة الجانبية المصغرة الموحدة */
-    .side-text {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        background: var(--primary-color);
-        color: white;
-        padding: 5px;
-        font-weight: bold;
-        writing-mode: vertical-rl;
-        font-size: 11px;
-        z-index: 100;
-        border-radius: 3px;
+    /* تنبيه وهمي يظهر فوق */
+    .fake-sms {
+        background: #fff;
+        border-radius: 15px;
+        width: 90%;
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        animation: slideDown 0.5s ease;
     }
-    .right-side { right: 0; }
-    .left-side { left: 0; background: #c40000; }
+    @keyframes slideDown { from { transform: translateY(-100px); } to { transform: translateY(0); } }
 
-    .main-container {
+    .main-box {
         max-width: 450px;
-        margin: 60px auto;
+        margin: 40px auto;
         background: #fff;
         border-radius: 20px;
-        padding: 40px;
+        padding: 30px;
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
-    .check-icon {
-        font-size: 50px;
-        color: var(--primary-color);
-        margin-bottom: 20px;
-    }
-    h2 { color: #128c7e; margin-bottom: 15px; }
-    p { font-size: 16px; color: #444; line-height: 1.8; }
-    
-    .status-bar {
-        background: #f1f1f1;
-        border-radius: 10px;
-        padding: 15px;
-        margin-top: 25px;
-        font-weight: bold;
-        color: #555;
-        border-right: 5px solid var(--primary-color);
-    }
-
-    .success-amount {
-        color: #c40000;
-        font-weight: bold;
-        font-size: 20px;
-    }
+    .timer { font-size: 30px; color: #c40000; font-weight: bold; margin: 20px 0; }
+    .status { color: #888; font-size: 14px; }
 </style>
 </head>
 <body>
 
-<div class="side-text right-side">كوتش خديجة ثقة تعامل مية مية</div>
-<div class="side-text left-side">ربنا يزيدها ويبارك لها يارب</div>
-
-<div class="main-container">
-    <div class="check-icon">✅</div>
-    <h2>تم استلام طلب السحب بنجاح!</h2>
-    <p>
-        لقد تم استلام إيصال التحويل الخاص بك لرسوم التفعيل. <br>
-        جاري مراجعة الطلب الآن لتحويل مبلغ: <br>
-        <span class="success-amount">25,000 جنيه مصري</span>
-    </p>
-    
-    <div class="status-bar">
-        ⏳ الحالة: جاري تحويل الأرباح للمحفظة...
+<div class="fake-sms">
+    <div style="font-size: 25px;">💬</div>
+    <div style="text-align: right;">
+        <b style="color: #333;">نظام التحويل الآلي</b>
+        <div style="font-size: 12px; color: #666;">تم استلام الإيصال، سيصلك كود السحب في رسالة SMS خلال 30 دقيقة.</div>
     </div>
-
-    <p style="margin-top: 30px; font-size: 14px; color: #888;">
-        شكراً لثقتك في كوتش خديجة. <br>
-        يرجى عدم إغلاق هذه الصفحة لمدة 5 دقائق.
-    </p>
 </div>
+
+<div class="main-box">
+    <div style="font-size: 50px;">⏳</div>
+    <h2>جاري تجهيز ربحك (25,000 ج)</h2>
+    <p>برجاء الانتظار حتى تنتهي المراجعة الفنية. لا تغلق الصفحة للحفاظ على دورك في السحب.</p>
+    
+    <div class="timer" id="countdown">30:00</div>
+    <div class="status">الحالة: يتم الآن التأكد من صحة التحويل...</div>
+</div>
+
+<script>
+    // كود العداد التنازلي 30 دقيقة
+    let time = 30 * 60;
+    const display = document.getElementById('countdown');
+    
+    setInterval(() => {
+        let minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+        display.innerHTML = `${minutes}:${seconds}`;
+        if (time > 0) time--;
+    }, 1000);
+</script>
 
 </body>
 </html>
