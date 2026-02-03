@@ -3,69 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تأكيد السحب</title>
+<title>تأكيد استلام الطلب</title>
 <style>
     :root { --primary-color: #25d366; }
-    body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #eef2f5; margin: 0; text-align: center; }
+    body { 
+        font-family: 'Segoe UI', Tahoma, sans-serif; 
+        background: #eef2f5; 
+        margin: 0; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    }
 
-    /* تنبيه وهمي يظهر فوق */
-    .fake-sms {
+    /* التنبيه الوهمي العلوي */
+    .fake-notification {
         background: #fff;
-        border-radius: 15px;
+        border-radius: 12px;
         width: 90%;
         max-width: 400px;
-        margin: 20px auto;
-        padding: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        margin-top: 20px;
+        padding: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         display: flex;
         align-items: center;
-        gap: 15px;
-        animation: slideDown 0.5s ease;
+        gap: 12px;
+        border-right: 4px solid var(--primary-color);
+        animation: fadeInDown 0.6s ease;
     }
-    @keyframes slideDown { from { transform: translateY(-100px); } to { transform: translateY(0); } }
 
-    .main-box {
+    @keyframes fadeInDown {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .main-card {
         max-width: 450px;
-        margin: 40px auto;
+        width: 90%;
+        margin: 30px auto;
         background: #fff;
         border-radius: 20px;
         padding: 30px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        text-align: center;
     }
-    .timer { font-size: 30px; color: #c40000; font-weight: bold; margin: 20px 0; }
-    .status { color: #888; font-size: 14px; }
+
+    .timer-box {
+        font-size: 35px;
+        color: #d32f2f;
+        font-weight: bold;
+        background: #fff5f5;
+        padding: 15px;
+        border-radius: 12px;
+        margin: 20px 0;
+        border: 1px dashed #d32f2f;
+    }
+
+    .side-label {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--primary-color);
+        color: white;
+        padding: 6px;
+        font-weight: bold;
+        writing-mode: vertical-rl;
+        font-size: 11px;
+        border-radius: 4px;
+    }
 </style>
 </head>
 <body>
 
-<div class="fake-sms">
-    <div style="font-size: 25px;">💬</div>
+<div class="side-label" style="right: 0;">كوتش خديجة - تعامل مضمون</div>
+<div class="side-label" style="left: 0; background: #c40000;">جاري معالجة طلبك الآن</div>
+
+<div class="fake-notification">
+    <div style="font-size: 22px;">📩</div>
     <div style="text-align: right;">
-        <b style="color: #333;">نظام التحويل الآلي</b>
-        <div style="font-size: 12px; color: #666;">تم استلام الإيصال، سيصلك كود السحب في رسالة SMS خلال 30 دقيقة.</div>
+        <strong style="font-size: 14px; color: #333;">نظام التحويل الذكي</strong>
+        <div style="font-size: 12px; color: #666;">تم استلام الإيصال.. سيصلك كود السحب في SMS خلال دقائق.</div>
     </div>
 </div>
 
-<div class="main-box">
-    <div style="font-size: 50px;">⏳</div>
-    <h2>جاري تجهيز ربحك (25,000 ج)</h2>
-    <p>برجاء الانتظار حتى تنتهي المراجعة الفنية. لا تغلق الصفحة للحفاظ على دورك في السحب.</p>
+<div class="main-card">
+    <div style="font-size: 60px; margin-bottom: 10px;">⏳</div>
+    <h2 style="color: #128c7e; margin-bottom: 5px;">جاري تجهيز مبلغ 25,000 ج</h2>
+    <p style="color: #555; font-size: 15px;">برجاء الانتظار وعدم إغلاق الصفحة لضمان استكمال عملية التحويل إلى محفظتك.</p>
     
-    <div class="timer" id="countdown">30:00</div>
-    <div class="status">الحالة: يتم الآن التأكد من صحة التحويل...</div>
+    <div class="timer-box" id="timer">30:00</div>
+    
+    <div style="font-size: 13px; color: #999;">
+        الحالة: جاري مراجعة إيصال التحويل (01270399629)
+    </div>
 </div>
 
 <script>
-    // كود العداد التنازلي 30 دقيقة
-    let time = 30 * 60;
-    const display = document.getElementById('countdown');
+    // عداد تنازلي بسيط لزيادة المصداقية
+    let duration = 30 * 60;
+    const timerDisplay = document.getElementById('timer');
     
-    setInterval(() => {
-        let minutes = Math.floor(time / 60);
-        let seconds = time % 60;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        display.innerHTML = `${minutes}:${seconds}`;
-        if (time > 0) time--;
+    const countdown = setInterval(() => {
+        let mins = Math.floor(duration / 60);
+        let secs = duration % 60;
+        timerDisplay.textContent = `${mins}:${secs < 10 ? '0' + secs : secs}`;
+        if (--duration < 0) clearInterval(countdown);
     }, 1000);
 </script>
 
