@@ -1,114 +1,95 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تأكيد استلام الطلب</title>
-<style>
-    :root { --primary-color: #25d366; }
-    body { 
-        font-family: 'Segoe UI', Tahoma, sans-serif; 
-        background: #eef2f5; 
-        margin: 0; 
-        display: flex; 
-        flex-direction: column; 
-        align-items: center; 
-    }
-
-    /* التنبيه الوهمي العلوي */
-    .fake-notification {
-        background: #fff;
-        border-radius: 12px;
-        width: 90%;
-        max-width: 400px;
-        margin-top: 20px;
-        padding: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        border-right: 4px solid var(--primary-color);
-        animation: fadeInDown 0.6s ease;
-    }
-
-    @keyframes fadeInDown {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    .main-card {
-        max-width: 450px;
-        width: 90%;
-        margin: 30px auto;
-        background: #fff;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        text-align: center;
-    }
-
-    .timer-box {
-        font-size: 35px;
-        color: #d32f2f;
-        font-weight: bold;
-        background: #fff5f5;
-        padding: 15px;
-        border-radius: 12px;
-        margin: 20px 0;
-        border: 1px dashed #d32f2f;
-    }
-
-    .side-label {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        background: var(--primary-color);
-        color: white;
-        padding: 6px;
-        font-weight: bold;
-        writing-mode: vertical-rl;
-        font-size: 11px;
-        border-radius: 4px;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>تم السحب بنجاح - سارة</title>
+    
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .success-card {
+            background: white;
+            padding: 40px 20px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            width: 85%;
+            max-width: 400px;
+        }
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: #4caf50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            margin: 0 auto 20px;
+        }
+        h2 { color: #2e7d32; margin-bottom: 10px; }
+        p { color: #666; line-height: 1.6; }
+        .details {
+            background: #f1f8e9;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: right;
+        }
+        .details div {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        .btn-back {
+            display: block;
+            background: #1a73e8;
+            color: white;
+            padding: 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
-<div class="side-label" style="right: 0;">كوتش خديجة - تعامل مضمون</div>
-<div class="side-label" style="left: 0; background: #c40000;">جاري معالجة طلبك الآن</div>
+    <div class="success-card">
+        <div class="icon-circle">✓</div>
+        <h2>تم التأكيد يا سارة!</h2>
+        <p>لقد استلمنا طلب السحب الخاص بكِ بنجاح.</p>
 
-<div class="fake-notification">
-    <div style="font-size: 22px;">📩</div>
-    <div style="text-align: right;">
-        <strong style="font-size: 14px; color: #333;">نظام التحويل الذكي</strong>
-        <div style="font-size: 12px; color: #666;">تم استلام الإيصال.. سيصلك كود السحب في SMS خلال دقائق.</div>
+        <div class="details">
+            <div>
+                <span>المبلغ المحول:</span>
+                <strong>29,500 ج.م</strong>
+            </div>
+            <div>
+                <span>الرسوم المدفوعة:</span>
+                <strong>3,599 ج.م</strong>
+            </div>
+            <div>
+                <span>حالة العملية:</span>
+                <span style="color: #2e7d32;">قيد المعالجة</span>
+            </div>
+        </div>
+
+        <p style="font-size: 13px;">سيتم تحويل المبلغ إلى محفظتك خلال 15 دقيقة.</p>
+        
+        <a href="index.html" class="btn-back">العودة للرئيسية</a>
     </div>
-</div>
-
-<div class="main-card">
-    <div style="font-size: 60px; margin-bottom: 10px;">⏳</div>
-    <h2 style="color: #128c7e; margin-bottom: 5px;">جاري تجهيز مبلغ 25,000 ج</h2>
-    <p style="color: #555; font-size: 15px;">برجاء الانتظار وعدم إغلاق الصفحة لضمان استكمال عملية التحويل إلى محفظتك.</p>
-    
-    <div class="timer-box" id="timer">30:00</div>
-    
-    <div style="font-size: 13px; color: #999;">
-        الحالة: جاري مراجعة إيصال التحويل (01270399629)
-    </div>
-</div>
-
-<script>
-    // عداد تنازلي بسيط لزيادة المصداقية
-    let duration = 30 * 60;
-    const timerDisplay = document.getElementById('timer');
-    
-    const countdown = setInterval(() => {
-        let mins = Math.floor(duration / 60);
-        let secs = duration % 60;
-        timerDisplay.textContent = `${mins}:${secs < 10 ? '0' + secs : secs}`;
-        if (--duration < 0) clearInterval(countdown);
-    }, 1000);
-</script>
 
 </body>
 </html>
