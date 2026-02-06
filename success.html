@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>تم إرسال الطلب بنجاح</title>
+    <title>تم السحب بنجاح</title>
     
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5;
+            background-color: #f9f9f9;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,98 +19,77 @@
         }
         .success-card {
             background: white;
-            padding: 35px 20px;
-            border-radius: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            width: 88%;
+            padding: 40px 20px;
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            width: 85%;
             max-width: 400px;
         }
-        .check-icon {
-            width: 70px;
-            height: 70px;
-            background: #25d366;
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: #4caf50;
             color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 35px;
+            font-size: 40px;
             margin: 0 auto 20px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
         }
-        h2 { color: #128c7e; margin-bottom: 10px; font-size: 22px; }
-        p { color: #555; font-size: 15px; line-height: 1.5; }
-        
-        .receipt-details {
-            background: #fdfaea;
-            border: 1px solid #ffe082;
+        h2 { color: #2e7d32; margin-bottom: 10px; }
+        p { color: #666; line-height: 1.6; }
+        .details {
+            background: #f1f8e9;
             padding: 15px;
             border-radius: 15px;
             margin: 20px 0;
             text-align: right;
         }
-        .receipt-details div {
+        .details div {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 15px;
         }
-        .receipt-details div:last-child { border: none; }
-        
-        .status-badge {
-            background: #e8f5e9;
-            color: #2e7d32;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-weight: bold;
-            font-size: 13px;
-        }
-
-        .home-btn {
+        .btn-back {
             display: block;
             background: #25d366;
             color: white;
-            padding: 14px;
-            border-radius: 12px;
+            padding: 15px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 20px;
             box-shadow: 0 4px 0 #128c7e;
-            transition: 0.2s;
         }
-        .home-btn:active { transform: translateY(3px); box-shadow: none; }
     </style>
 </head>
 <body>
 
     <div class="success-card">
-        <div class="check-icon">✓</div>
-        <h2>تم تقديم طلب السحب!</h2>
-        <p>لقد استلمنا إيصال الرسوم الخاص بكِ يا كوتش خديجة، جاري مراجعة العملية الآن.</p>
+        <div class="icon-circle">✓</div>
+        <h2>تم تقديم الطلب بنجاح!</h2>
+        <p>يا كوتش خديجة، تم استلام بيانات السحب وإيصال الرسوم بنجاح.</p>
 
-        <div class="receipt-details">
+        <div class="details">
             <div>
-                <span>مبلغ الأرباح:</span>
+                <span>المبلغ المطلوب سحبه:</span>
                 <strong>120,000 ج.م</strong>
             </div>
             <div>
-                <span>الرسوم المستلمة:</span>
-                <strong>10,000 ج.م</strong>
+                <span>رسوم التفعيل المستلمة:</span>
+                <strong>5,000 ج.م</strong>
             </div>
             <div>
-                <span>رقم العملية:</span>
-                <span style="font-family: monospace;">#TRX-994021</span>
-            </div>
-            <div>
-                <span>حالة التحويل:</span>
-                <span class="status-badge">قيد التأكيد</span>
+                <span>حالة المراجعة:</span>
+                <span style="color: #2e7d32; font-weight: bold;">جاري التأكيد الآن</span>
             </div>
         </div>
 
-        <p style="font-size: 12px; color: #888;">سيصلك إشعار بالتحويل على محفظتك المسجلة خلال 15-30 دقيقة كحد أقصى.</p>
+        <p style="font-size: 13px;">سيتم مراجعة الإيصال من قبل شركة التقوى وتحويل الأرباح لمحفظتك خلال دقائق.</p>
         
-        <a href="index.html" class="home-btn">العودة للرئيسية</a>
+        <a href="index.html" class="btn-back">العودة للرئيسية</a>
     </div>
 
 </body>
