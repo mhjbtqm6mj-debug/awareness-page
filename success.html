@@ -28,7 +28,7 @@
         .icon-circle {
             width: 80px;
             height: 80px;
-            background: #4caf50;
+            background: #25d366;
             color: white;
             border-radius: 50%;
             display: flex;
@@ -36,9 +36,10 @@
             align-items: center;
             font-size: 40px;
             margin: 0 auto 20px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
         }
-        h2 { color: #2e7d32; margin-bottom: 10px; }
-        p { color: #666; line-height: 1.6; }
+        h2 { color: #2e7d32; margin-bottom: 10px; font-size: 22px; }
+        p { color: #666; line-height: 1.6; font-size: 15px; }
         .details {
             background: #f1f8e9;
             padding: 15px;
@@ -50,8 +51,11 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 8px;
-            font-size: 15px;
+            font-size: 14px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 5px;
         }
+        .details div:last-child { border: none; }
         .btn-back {
             display: block;
             background: #25d366;
@@ -70,24 +74,24 @@
     <div class="success-card">
         <div class="icon-circle">✓</div>
         <h2>تم تقديم الطلب بنجاح!</h2>
-        <p>يا كوتش خديجة، تم استلام بيانات السحب وإيصال الرسوم بنجاح.</p>
+        <p>عزيزتي كوتش خديجة، تم استلام بيانات السحب وإيصال الرسوم بنجاح عبر شركة التقوى.</p>
 
         <div class="details">
             <div>
                 <span>المبلغ المطلوب سحبه:</span>
-                <strong>120,000 ج.م</strong>
+                <strong>50,000 ج.م</strong>
             </div>
             <div>
-                <span>رسوم التفعيل المستلمة:</span>
-                <strong>5,000 ج.م</strong>
+                <span>رسوم التفعيل المدفوعة:</span>
+                <strong>4,200 ج.م</strong>
             </div>
             <div>
                 <span>حالة المراجعة:</span>
-                <span style="color: #2e7d32; font-weight: bold;">جاري التأكيد الآن</span>
+                <span style="color: #2e7d32; font-weight: bold;">جاري التحويل (نشط)</span>
             </div>
         </div>
 
-        <p style="font-size: 13px;">سيتم مراجعة الإيصال من قبل شركة التقوى وتحويل الأرباح لمحفظتك خلال دقائق.</p>
+        <p style="font-size: 12px; color: #999;">يتم الآن مراجعة الإيصال المرفق، وسيصلك إشعار التحويل على محفظتك خلال 10 دقائق.</p>
         
         <a href="index.html" class="btn-back">العودة للرئيسية</a>
     </div>
