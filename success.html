@@ -2,98 +2,134 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>تم السحب بنجاح</title>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تأكيد استلام الطلب | شركة التقوى</title>
     <style>
+        :root {
+            --primary: #1a73e8;
+            --success: #28a745;
+            --bg: #f0f2f5;
+        }
         body {
             margin: 0;
             padding: 0;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f9f9f9;
+            background-color: var(--bg);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
         }
-        .success-card {
+        .success-container {
             background: white;
-            padding: 40px 20px;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            width: 85%;
-            max-width: 400px;
+            width: 90%;
+            max-width: 420px;
+            padding: 40px 25px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+            border-top: 6px solid var(--success);
         }
-        .icon-circle {
-            width: 80px;
-            height: 80px;
-            background: #25d366;
+        .check-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--success);
             color: white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 40px;
+            font-size: 35px;
             margin: 0 auto 20px;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.2);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
         }
-        h2 { color: #2e7d32; margin-bottom: 10px; font-size: 22px; }
-        p { color: #666; line-height: 1.6; font-size: 15px; }
-        .details {
-            background: #f1f8e9;
-            padding: 15px;
+        h2 { color: #333; margin-bottom: 10px; font-size: 24px; }
+        .message { color: #666; font-size: 15px; line-height: 1.6; margin-bottom: 25px; }
+        
+        .summary-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
             border-radius: 15px;
-            margin: 20px 0;
+            padding: 20px;
             text-align: right;
+            margin-bottom: 25px;
         }
-        .details div {
+        .summary-item {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
-            font-size: 14px;
-            border-bottom: 1px solid #e0e0e0;
-            padding-bottom: 5px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #dee2e6;
         }
-        .details div:last-child { border: none; }
-        .btn-back {
+        .summary-item:last-child { border: none; margin-bottom: 0; }
+        .label { color: #777; font-size: 14px; }
+        .value { color: #333; font-weight: bold; font-size: 15px; }
+        
+        .profit-text { color: var(--primary); font-size: 18px; }
+        
+        .status-badge {
+            display: inline-block;
+            background: #e1f5fe;
+            color: #0288d1;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .btn-home {
             display: block;
-            background: #25d366;
+            background: var(--primary);
             color: white;
             padding: 15px;
-            border-radius: 25px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
+            transition: 0.3s;
+        }
+        .btn-home:hover { background: #1557b0; }
+        
+        .footer-note {
             margin-top: 20px;
-            box-shadow: 0 4px 0 #128c7e;
+            font-size: 12px;
+            color: #999;
         }
     </style>
 </head>
 <body>
 
-    <div class="success-card">
-        <div class="icon-circle">✓</div>
-        <h2>تم تقديم الطلب بنجاح!</h2>
-        <p>عزيزتي كوتش خديجة، تم استلام بيانات السحب وإيصال الرسوم بنجاح عبر شركة التقوى.</p>
+    <div class="success-container">
+        <div class="check-icon">✓</div>
+        <h2>تم إرسال الطلب بنجاح</h2>
+        <p class="message">شكراً لكِ يا كوتش خديجة. تم استلام بيانات السحب وصورة التحويل، وجاري المعالجة من قبل القسم المالي بشركة التقوى.</p>
 
-        <div class="details">
-            <div>
-                <span>المبلغ المطلوب سحبه:</span>
-                <strong>50,000 ج.م</strong>
+        <div class="summary-card">
+            <div class="summary-item">
+                <span class="label">المبلغ المعتمد للسحب:</span>
+                <span class="value profit-text">85,000 ج.م</span>
             </div>
-            <div>
-                <span>رسوم التفعيل المدفوعة:</span>
-                <strong>4,200 ج.م</strong>
+            <div class="summary-item">
+                <span class="label">رسوم التفعيل المستلمة:</span>
+                <span class="value">5,000 ج.م</span>
             </div>
-            <div>
-                <span>حالة المراجعة:</span>
-                <span style="color: #2e7d32; font-weight: bold;">جاري التحويل (نشط)</span>
+            <div class="summary-item">
+                <span class="label">رقم المرجعي للطلب:</span>
+                <span class="value">#TQ-2026-885</span>
+            </div>
+            <div style="text-align: center;">
+                <span class="status-badge">قيد التأكيد (90%)</span>
             </div>
         </div>
 
-        <p style="font-size: 12px; color: #999;">يتم الآن مراجعة الإيصال المرفق، وسيصلك إشعار التحويل على محفظتك خلال 10 دقائق.</p>
+        <p style="font-size: 13px; color: #444; margin-bottom: 20px;">
+            سيتم تحويل المبلغ إلى محفظتك المسجلة خلال دقائق بعد مراجعة إيصال التحويل.
+        </p>
         
-        <a href="index.html" class="btn-back">العودة للرئيسية</a>
+        <a href="index.html" class="btn-home">العودة للرئيسية</a>
+        
+        <div class="footer-note">نظام تحويل الأرباح الفوري المعتمد © 2026</div>
     </div>
 
 </body>
